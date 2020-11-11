@@ -1,0 +1,45 @@
+<h2>Login</h2>
+<form >
+    <div class="form-group">
+        <label for="username">Username</label>
+        <!-- <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> -->
+        <!-- <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <!-- <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" /> -->
+        <!-- <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">
+            <span></span>
+            Login
+        </button>
+        <a routerLink="/register" class="btn btn-link">Register</a>
+    </div>
+</form>
+
+<!-- <div class='card'>
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col-md-8'>
+          <div class='row'>
+            <div class='col-md-4'></div>
+            <div class='col-md-8'>{{user.firstName + user.lastName}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>User Name:</div>
+            <div class='col-md-8'>{{user.email}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>Phone Number:</div>
+            <div class='col-md-8'>{{user.phone1}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
