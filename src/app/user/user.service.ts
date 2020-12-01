@@ -4,12 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 import { User } from './user';
+import { SharedModule } from '../shared/shared.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private userUrl = 'http://localhost:8080/user';
+  private userUrl = 'http://localhost:8080/api/user';
+  private sharedModule = SharedModule;
 
   constructor(private http: HttpClient) { }
 

@@ -12,9 +12,19 @@ export class ProductService {
   // If using Stackblitz, replace the url with this line
   // because Stackblitz can't find the api folder.
   // private productUrl = 'assets/products/products.json';
-  private productUrl = '../api/products/products.json';
+  private productUrl = 'http://localhost:8080/api/product';
 
   constructor(private http: HttpClient) { }
+
+  // getProducts(): Observable<Product[]> {
+  //   const header = this.shared.getHeader();
+  //   console.log(header);
+  //   return this.http.get<Product[]>(this.productUrl, header)
+  //     .pipe(
+  //       tap(data => console.log('All: ' + JSON.stringify(data))),
+  //       catchError(this.handleError)
+  //     );
+  // }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productUrl)
