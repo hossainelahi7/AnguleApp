@@ -22,11 +22,11 @@ export class UserDetailComponent implements OnInit {
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
       const id = +param;
-      this.getProduct(id);
+      this.getUser(id);
     }
   }
 
-  getProduct(id: number): void {
+  getUser(id: number): void {
     this.userService.getUser(id).subscribe({
       next: user => this.user = user,
       error: err => this.errorMessage = err

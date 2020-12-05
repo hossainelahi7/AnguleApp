@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit {
     "password":"907-385-4412"
   };
 
-  response:any;
-
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -35,9 +32,8 @@ export class LoginComponent implements OnInit {
   public getAccessToken(){
     this.generateToken(this.authRequest).subscribe(data => {
       if ( data.indexOf('Bearer ') >= 0){
-        this.shared.setToken(data.split('Bearer ', 2)[1]);
-        console.log("Token generated "+this.shared.getToken());
-        this.router.navigate(['/products']);
+        this.shared.setToken(data);
+        this.router.navigate(['/welcome']);
       }
     });
   }

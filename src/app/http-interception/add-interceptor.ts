@@ -18,9 +18,9 @@ export class AddHeaderInterceptor implements HttpInterceptor {
     // Clone the request to add the new header
     let clonedRequest;
     if (this.shared.getToken() != null && this.shared.getToken().length > 0) {
-      clonedRequest = req.clone({ headers: req.headers.append('Authorization', 'Bearer ' + this.shared.getToken()) });
+      clonedRequest = req.clone({ headers: req.headers.append('Authorization', this.shared.getToken()) });
     } else {
-      clonedRequest = req.clone({ headers: req.headers.append('Authorization', '') });
+      clonedRequest = req.clone({ headers: req.headers });
     }
     return next.handle(clonedRequest);
   }
