@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,16 @@ import { SharedModule } from '../shared/shared.module';
       }
     ]),
     CommonModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })
-export class LoginModule { }
+export class LoginModule { 
+  form: FormGroup;
+  constructor() {
+    this.form = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl()
+    });
+  }
+}

@@ -10,6 +10,7 @@ import { UserModule} from './user/user.module';
 import { LoginModule } from './login/login.module';
 import { AddHeaderInterceptor } from './http-interception/add-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   }],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
