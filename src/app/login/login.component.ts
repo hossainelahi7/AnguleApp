@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.generateToken(JSON.parse(this.authRequest(this.f.username.value, this.f.password.value))).subscribe(data => {
       if ( data.indexOf('Bearer ') >= 0){
         this.shared.setToken(data);
+        this.shared.setUsername(this.f.username.value);
         this.router.navigate(['/welcome']);
       }
     });

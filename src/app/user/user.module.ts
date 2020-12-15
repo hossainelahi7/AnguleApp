@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { UserDetailComponent } from './user-detail.component';
 import { RouterModule } from '@angular/router';
-import { UserDetailGuard } from './user-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -11,8 +10,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     RouterModule.forChild([
       {
-        path: 'user/:id',
-        canActivate: [UserDetailGuard],
+        path: 'user',
         component: UserDetailComponent
       }
     ]),
