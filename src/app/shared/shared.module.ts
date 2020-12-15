@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { StarComponent } from './star.component';
 import { FormsModule } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
-// import { HttpHeaders } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +20,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class SharedModule {
 
   private token: string;
+  private username: string;
 
   public setToken(value:string){
     this.token = value;
@@ -28,6 +28,14 @@ export class SharedModule {
 
   public getToken(){
     return this.token;
+  }
+
+  public getUsername(){
+    return this.getUsername;
+  }
+
+  public setUsername(value:string){
+    this.username = value;
   }
 
 }
