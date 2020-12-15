@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  private userUrl = 'http://localhost:8080/api/authenticate';
+  private userUrl = 'http://localhost:8080/api/authenticate';  
 
   form: FormGroup;
 
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
-    private route: ActivatedRoute,
+    // private route: ActivatedRoute,
     private router: Router,
     private httpClient: HttpClient,
     private shared: SharedModule,
@@ -29,6 +29,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    debugger;
+    const username = this.shared.getUsername();
+    if(username != null || username.length > 0){
+      this.logout();
+    }
     this.form = this.formBuilder.group({
       username: [''],
       password: ['']
@@ -49,5 +54,12 @@ export class LoginComponent implements OnInit {
 
   generateToken(request) {
     return this.httpClient.post<string>(this.userUrl, request, {  responseType: 'text' as 'json' });
+  }
+
+  logout(){
+    this.httpClient.get<string>(this.userUrl+'/logout').subscribe(data => {
+      this.shared.setUsername('');
+      this.shared.setToken('');
+    });
   }
 }
