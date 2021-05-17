@@ -18,7 +18,7 @@ export class UserService {
     const url: string = this.userUrl;
     return this.http.get<User>(url)
       .pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
+        tap(),
         map((user: User) => user),
         catchError(this.handleError)
       );
